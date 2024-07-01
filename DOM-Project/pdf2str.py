@@ -1,7 +1,8 @@
-from pdfminer.pdfinterp import PDFResourceManager, process_pdf
+from pdfminer.pdfinterp import *
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from io import StringIO
+
 def pdf2str(pdf_file):
     pdf_rm = PDFResourceManager()
     retstr = StringIO()
@@ -13,10 +14,11 @@ def pdf2str(pdf_file):
     retstr.close()
     return content
 
+
 def pdf2txt(file):
-    pdf = open(file,'rb')
-    pdf_string = pdf2str(pdf_file=pdf)
-    with open("text_pdf.txt", 'w', encoding='utf-8') as txtfile:
-        txtfile.write(pdf_string)
-    pdf.close()
+    #pdf = open(file,'rb')
+    pdf_string = pdf2str(pdf_file=file)
+    print("Start convertion PDF -> Text")
+    #pdf.close()
+    print("Done convertion PDF -> Text")
     return pdf_string
